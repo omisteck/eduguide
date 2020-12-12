@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ApplicationForm;
 use App\Models\Application;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,8 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        return view("application.create");
+        $type = Type::all();
+        return view("application.create",['types' => $type]);
     }
 
     /**
@@ -48,12 +50,15 @@ class ApplicationController extends Controller
             ]);
 
             $user->application()->create([
-                'interested_programme' => $request->interested_programme,
+                'type_id' => $request->interested_programme,
                 'preferred_course' => $request->preferred_course,
                 'study_centre' => $request->study_centre,
                 'status' => 'Pending',
             ]);
-            return redirect()->route('recipte');
+
+
+             $application =  Application::where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
+            return redirect()->route('invoice',[$application->id]);
     }
 
     /**
@@ -64,7 +69,8 @@ class ApplicationController extends Controller
      */
     public function show(Application $application)
     {
-        //
+
+        return view('invoice.index', ['application' => $application ]);
     }
 
     /**

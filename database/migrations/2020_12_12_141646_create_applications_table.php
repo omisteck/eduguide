@@ -16,7 +16,7 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->uuid('id')->unique();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('interested_programme');
+
             $table->string('preferred_course');
             $table->string('study_centre');
             $table->enum('status',['Approved', 'Pending', 'Cancel'])->default('Pending');

@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('login');
 
+Route::get('invoice/{application}', [ApplicationController::class,'show'])->name('invoice');
 Route::resource('/application', ApplicationController::class);
+

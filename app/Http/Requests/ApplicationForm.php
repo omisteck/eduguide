@@ -28,7 +28,7 @@ class ApplicationForm extends FormRequest
             'password' => 'required|confirmed|min:6',
             'email' => 'required|email | unique:users,email',
             'phone' => 'required',
-            'interested_programme' => 'required',
+            'interested_programme' => 'integer',
             'preferred_course' => 'required',
             'study_centre' => 'required',
             'address' => 'required',
