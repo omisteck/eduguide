@@ -9,9 +9,9 @@ use Illuminate\Support\Str;
 class Application extends Model
 {
     use HasFactory;
-
+    public $incrementing = false;
     protected $fillable = [
-        'interested_programme','preferred_course','study_centre','status'
+        'type_id','preferred_course','study_centre','status'
     ];
 
     protected static function boot(){

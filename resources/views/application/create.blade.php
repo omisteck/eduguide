@@ -97,16 +97,9 @@
                                 <div class="col-md-6">
                                     <p>Interested programme/Exam</p>
                                     <select name="interested_programme" class="form-control">
-                                        <option value="Please select" selected="selected">Please select</option>
-                                        <option value="IJMB programme/examination 2019/20 academic session">IJMB</option>
-                                        <option value="NABTEB programme/examination 2019/20 academic session">NABTEB</option>
-                                        <option value="CAMBRIDGE programme/examination 2019/20 academic session">CAMBRIDGE</option>
-                                        <option value="TOEFL examination">TOEFL</option>
-                                        <option value="IELTS examination">IELTS</option>
-                                        <option value="SAT I & II examination">SAT I & II</option>
-                                        <option value="GMAT examination">GMAT</option>
-                                        <option value="GRE examination">GRE</option>
-                                        <option value="PTE examination">PTE</option>
+                                        @foreach($types as $type )
+                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
