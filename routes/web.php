@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +17,13 @@ use App\Http\Controllers\ApplicationController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('login');
+});
 
 Route::get('invoice/{application}', [ApplicationController::class,'show'])->name('invoice');
 Route::resource('/application', ApplicationController::class);
-
+Route::get('/application/validate', [ApplicationController::class, 'validate'])->name('validate');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/logout', [DashboardController::class, 'logout']);
+    
+});

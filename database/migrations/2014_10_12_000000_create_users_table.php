@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->enum('gender',['Male','Female']);
+            $table->enum('user_type',['admin','client'])->default('client');
             $table->rememberToken();
             $table->timestamps();
         });
