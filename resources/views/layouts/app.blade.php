@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="logo">
-                        <a href="index.html"><img src="img/logo/logo.png" alt="eduhome" /></a>
+                        <a href="/"><img src="img/logo/logo.png" alt="eduhome" /></a>
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-12">
@@ -75,16 +75,14 @@
                                             <li><a href="teacher-details.html">teacher details</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">blog</a>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="javascript:void(0)">Application</a>
                                         <ul>
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
-                                            <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
+                                            <li><a href="/application/create">Apply</a>
+                                            <li><a href="{{route('validate')}}">Validate Payment</a>
+                                            <li><a href="/login">Login</a>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="#">Buy Now</a>
                                 </ul>
                             </nav>
                         </div>

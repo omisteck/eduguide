@@ -11,7 +11,7 @@ class Application extends Model
     use HasFactory;
     public $incrementing = false;
     protected $fillable = [
-        'type_id','preferred_course','study_centre','status'
+        'type_id','preferred_course','study_centre','status', 'type_id'
     ];
 
     protected static function boot(){
