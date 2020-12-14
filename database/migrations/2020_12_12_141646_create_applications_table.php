@@ -19,6 +19,7 @@ class CreateApplicationsTable extends Migration
 
             $table->string('preferred_course');
             $table->string('study_centre');
+            $table->string('session')->nullable();
             $table->enum('status',['Approved', 'Pending', 'Cancel'])->default('Pending');
             $table->timestamps();
         });

@@ -106,4 +106,9 @@ class ApplicationController extends Controller
     {
         //
     }
+
+    public function appvalidate(){
+        $type = Type::all();
+        return view('application.validate',['types' => $type]);
+    }
 }

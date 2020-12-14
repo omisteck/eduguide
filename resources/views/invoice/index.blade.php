@@ -70,18 +70,13 @@
                                 <tbody>
                                 <tr>
                                     <th>1</th>
-                                    <td>Asus Zenfone 3 Zoom ZE553KL Dual Sim (4GB, 64GB)</td>
-                                    <td>$900.00</td>
+                                    <td>Application fee for {{ $application->type->name }} programme year {{ \Carbon\Carbon::parse($application->created_at)->format('Y') }} </td>
+                                    <td>N{{ number_format($application->type->application_fee, 2) }}</td>
                                 </tr>
                                 <tr>
                                     <th>2</th>
-                                    <td>HP Pavilion 15-au103TX 15.6˝ Laptop Red</td>
-                                    <td>$550.00</td>
-                                </tr>
-                                <tr>
-                                    <th>3</th>
-                                    <td>Canon EOS 77D</td>
-                                    <td>$875.00</td>
+                                    <td>Merchant fee for {{ $application->type->name }} programme year {{ \Carbon\Carbon::parse($application->created_at)->format('Y') }} </td>
+                                    <td>N{{ number_format($application->type->merchant_charge, 2) }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -89,7 +84,7 @@
                         <div class="row m-t-30 lh-1-8">
                             <div class="col-sm-12">
                                 <div class="float-right text-right">
-                                    <p>Sub - Total amount: $2,325</p>
+                                    <p>Sub - Total amount: N{{ number_format($application->type->merchant_charge + $application->type->application_fee , 2) }}</p>
                                     <p>Discount (0%) : N 0.00 </p>
                                     <hr>
                                     <h3><span class="font-weight-semibold text-dark">Total :</span> 2,557.00</h3>
@@ -120,10 +115,10 @@
         <div class="col-md-8 offset-md-2">
             <div class="row m-v-20">
                 <div class="col-sm-6">
-                    <button class="btn btn-primary btn-md">Print</button>
+                    <button class="btn btn-primary btn-md" onclick="print()">Print</button>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <button class="btn btn-danger btn-md">Close</button>
+                    <a class="btn btn-danger btn-md" href="{{ route('home') }}">Close</a>
                 </div>
             </div>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\TransactionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,10 @@ use App\Http\Controllers\ApplicationController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('login');
+})->name('home');
 
+Route::post('/application/validate', [TransactionController::class,'validator'])->name('application.validate');
+Route::get('/application/validate', [ApplicationController::class,'appvalidate'])->name('validate');
 Route::get('invoice/{application}', [ApplicationController::class,'show'])->name('invoice');
 Route::resource('/application', ApplicationController::class);
 
